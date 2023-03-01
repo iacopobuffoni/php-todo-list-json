@@ -11,6 +11,21 @@
 
 <body>  
     <div id="app">
+
+        <div>
+            <h2>
+                Aggiungi To-Do
+            </h2>
+            <form action="create.php" method="post" @submit.prevent="addTask()">
+                <label for="task-name">
+                    Nome della task
+                    <input type="text" v-model="newTask.taskName" id="task-name" name="task-name" placeholder="Inserisci il nome della task" required minlength="1" maxlength="64">
+                </label>
+                <button type="submit">
+                    Aggiungi
+                </button>
+            </form>
+        </div>
         <ul>
             <li :class="todo.done ? 'done' : '' " v-for="(todo, index) in todos">
                 {{ index }}. {{ todo.taskName }}
